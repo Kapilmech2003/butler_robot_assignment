@@ -14,7 +14,12 @@ cd ..
 colcon build
 source install/setup.bash
 ```
+## Export the TURTLEBOT3_MODEL and the GAZEBO path
+```bash
+export TURTLEBOT3_MODEL=burger
 
+export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:~/butler_robot/install/turtlebot3_gazebo/share/turtlebot3_gazebo/models
+```
 ## Run the Gazebo and Navigation Stack
 Start the Simulation Environment
 ```bash

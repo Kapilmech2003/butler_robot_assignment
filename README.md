@@ -1,5 +1,6 @@
 # Butler Robot
 
+![Screenshot from 2025-04-04 01-40-28](https://github.com/user-attachments/assets/d7dfe24f-13bf-47fb-ba9d-59527f3806a5)
 
 
 ## Installation
@@ -29,9 +30,13 @@ Start Navigation
 ```bash
 ros2 launch turtlebot3_navigation2 navigation2.launch.py
 ```
-Run the Butler Robot Navigation Script
+Run the Butler Robot Navigation Script python
 ```bash
 ros2 run butler_robot butler_navigation
+```
+Run the Butler Robot Navigation Script cpp
+```bash
+ros2 run butler_navigation butler_navigation
 ```
 ## 📌 Task Execution Scenarios
 

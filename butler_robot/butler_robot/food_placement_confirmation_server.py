@@ -1,50 +1,32 @@
 import rclpy
 from rclpy.node import Node
-from std_msgs.msg import String
-import threading
-import time
+from butler_bot_interfaces.srv import ConfirmArrival
 
 class ConfirmationServer(Node):
     def __init__(self):
-        """ROS 2 node for handling user confirmation input."""
         super().__init__('confirmation_server')
-        self.subscription = self.create_subscription(
-            String, 'confirmation_request', self.request_callback, 10)
-        self.publisher = self.create_publisher(String, 'confirmation_response', 10)
+        self.srv = self.create_service(ConfirmArrival, 'confirm_arrival', self.handle_confirm_request)
 
-    def request_callback(self, msg):
-        """Handles incoming confirmation requests and sends user input back."""
-        data = msg.data.split(",")
-        location = data[0]
-        timeout = int(data[1])
+    def handle_confirm_request(self, request, response):
+        self.get_logger().info(f"Waiting for confirmation at {request.location}...")
+        confirmation = input(f"Confirm arrival at {request.location} (yes/no): ").strip().lower()
 
-        self.get_logger().info(f"Received confirmation request for {location} (Timeout: {timeout} sec)")
-
-        confirmation = None
-
-        def get_input():
-            nonlocal confirmation
-            confirmation = input(f"Confirm {location}? (yes/no): ").strip().lower()
-
-        input_thread = threading.Thread(target=get_input)
-        input_thread.daemon = True
-        input_thread.start()
-
-        input_thread.join(timeout)
-
-        response_msg = String()
-        if confirmation == "yes":
-            response_msg.data = "yes"
+        response.confirmed = confirmation == 'yes'
+        if response.confirmed:
+            self.get_logger().info(f"Arrival at {request.location} confirmed.")
         else:
-            response_msg.data = "no"
-
-        self.publisher.publish(response_msg)
-        self.get_logger().info(f"Sent response: {response_msg.data}")
+            self.get_logger().info(f"Arrival at {request.location} NOT confirmed.")
+        return response
 
 def main(args=None):
     rclpy.init(args=args)
     node = ConfirmationServer()
-    rclpy.spin(node)
+
+    try:
+        rclpy.spin(node)
+    except KeyboardInterrupt:
+        pass
+
     node.destroy_node()
     rclpy.shutdown()
 

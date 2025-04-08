@@ -3,9 +3,9 @@
 <package format="3">
   <name>butler_robot</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
+  <description>Navigation and delivery system for Butler Robot</description>
   <maintainer email="kapil@todo.todo">kapil</maintainer>
-  <license>TODO: License declaration</license>
+  <license>Apache License 2.0</license>
 
   <depend>rclpy</depend>
   <depend>geometry_msgs</depend>
@@ -13,8 +13,8 @@
   <depend>std_srvs</depend>
   <depend>nav2_simple_commander</depend>
   <depend>nav2_msgs</depend>
-  <depend>math</depend>
-  <depend>butler_robot_action</depend>
+  <depend>action_msgs</depend>
+  <depend>butler_bot_interfaces</depend>
 
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>

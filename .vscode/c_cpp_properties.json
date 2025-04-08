@@ -1,0 +1,23 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/kapil/butler_robot_assignment/install/turtlebot3_gazebo/include/**",
+        "/opt/ros/humble/include/**",
+        "/home/kapil/butler_robot_assignment/src/butler_navigation_cpp/include/**",
+        "/home/kapil/butler_robot_assignment/src/turtlebot3_gazebo/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

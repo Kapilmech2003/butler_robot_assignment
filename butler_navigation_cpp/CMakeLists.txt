@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(butler_navigation)
+project(butler_navigation_cpp)
 
 # Find dependencies
 find_package(ament_cmake REQUIRED)

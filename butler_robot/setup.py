@@ -22,6 +22,7 @@ setup(
         'console_scripts': [
             "butler_navigation= butler_robot.butler_navigation:main ",
             "food_placement_confirmation_server= butler_robot.food_placement_confirmation_server:main",
+            "main_controller= butler_robot.main_controller:main",
         ],
     },
 )

@@ -1,0 +1,8 @@
+# Goal
+string[] tables
+---
+# Result
+bool success
+---
+# Feedback
+string current_table

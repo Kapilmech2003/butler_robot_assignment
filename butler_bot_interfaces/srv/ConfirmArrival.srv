@@ -1,0 +1,5 @@
+# Request
+string location
+---
+# Response
+bool confirmed

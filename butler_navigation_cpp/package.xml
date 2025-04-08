@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="3">
-  <name>butler_navigation</name>
+  <name>butler_navigation_cpp</name>
   <version>0.1.0</version>
   <description>ROS 2 package for autonomous food delivery robot navigation.</description>
   <maintainer email="your_email@example.com">Your Name</maintainer>
